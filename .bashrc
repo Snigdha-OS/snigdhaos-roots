@@ -136,3 +136,34 @@ alias gds="git diff --staged"   # Shortcut for git diff staged changes
 alias gls="git ls-files"        # List files tracked by git
 alias gcl="git clone"           # Shortcut for git clone
 alias gtag="git tag"            # Shortcut for git tag
+
+# npm Aliases
+alias ni="npm install"            # Shortcut for npm install
+alias nis="npm install --save"     # Install and save the package in dependencies
+alias nisdev="npm install --save-dev" # Install and save as dev dependency
+alias nup="npm update"             # Update all packages
+alias nstart="npm start"           # Start the application (npm start)
+alias nrun="npm run"               # Run npm scripts
+alias ntest="npm test"             # Run npm tests
+alias nls="npm ls"                 # List installed packages
+alias nci="npm ci"                 # Clean install (faster than npm install)
+alias nfund="npm fund"             # Show funding info for packages
+alias npublish="npm publish"       # Publish package to npm registry
+alias nversion="npm version"       # View and manage versioning
+alias nrm="npm run"                # Run a npm script
+alias nout="npm outdated"          # Check outdated packages
+
+# pnpm Aliases
+alias pni="pnpm install"           # Shortcut for pnpm install
+alias pnis="pnpm install --save"    # Install and save in dependencies
+alias pnisdev="pnpm install --save-dev" # Install and save as dev dependency
+alias pnm="pnpm manager"           # Use pnpm as a manager alias
+alias pnup="pnpm update"           # Update all packages using pnpm
+alias pnstart="pnpm start"         # Start the application with pnpm
+alias pnrun="pnpm run"             # Run pnpm scripts
+alias pntest="pnpm test"           # Run pnpm tests
+alias pnls="pnpm list"             # List installed pnpm packages
+alias pnci="pnpm ci"               # Clean install with pnpm
+alias pnpublish="pnpm publish"     # Publish to pnpm registry
+alias pnversion="pnpm version"     # View and manage pnpm versioning
+alias pnout="pnpm outdated"        # Check outdated pnpm packages
