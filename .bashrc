@@ -184,3 +184,8 @@ alias pylist="pip list"       # List installed Python packages
 alias pyfreeze="pip freeze"   # List installed packages in requirements format
 alias pyinstall="pip install"  # Install Python packages
 alias pyuninstall="pip uninstall"  # Uninstall Python packages
+
+# Alias to change to different shells
+alias cbash="chsh -s /bin/bash"    # Change to Bash
+alias czsh="chsh -s /bin/zsh"      # Change to Zsh
+alias cfish="chsh -s /usr/bin/fish" # Change to Fish
