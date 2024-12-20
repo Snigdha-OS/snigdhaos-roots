@@ -167,3 +167,20 @@ alias pnci="pnpm ci"               # Clean install with pnpm
 alias pnpublish="pnpm publish"     # Publish to pnpm registry
 alias pnversion="pnpm version"     # View and manage pnpm versioning
 alias pnout="pnpm outdated"        # Check outdated pnpm packages
+
+# Python Aliases
+alias py="python"           # Shortcut for python
+alias py3="python3"         # Shortcut for python3
+alias pip="pip3"             # Use pip3 instead of pip
+alias pipup="pip install --upgrade"  # Upgrade pip packages
+alias pyvenv="python3 -m venv"      # Create a Python virtual environment
+alias pyactivate="source venv/bin/activate"  # Activate a Python virtual environment
+alias pydeactivate="deactivate"   # Deactivate a Python virtual environment
+alias pyrun="python"         # Run a Python script
+alias pycheck="python -m py_compile" # Check syntax without running
+alias pytest="python -m pytest" # Run tests with pytest
+alias pydoc="python -m pydoc"   # Launch Python documentation server
+alias pylist="pip list"       # List installed Python packages
+alias pyfreeze="pip freeze"   # List installed packages in requirements format
+alias pyinstall="pip install"  # Install Python packages
+alias pyuninstall="pip uninstall"  # Uninstall Python packages
