@@ -22,6 +22,37 @@ get_ip_address() {
 
 alias ls='ls -l --color=auto'
 
+# Set default aliases
+alias ls='ls -l --color=auto'
+alias grep='grep --color=auto'
+alias rs="sudo pacman -Rs"
+alias s="sudo pacman -S"
+alias sy="sudo pacman -Syy"
+alias syyu="sudo pacman -Syyu"
+alias lck="sudo rm /var/lib/pacman/db.lck"
+alias vm="sudo systemctl enable --now vmtoolsd.service"
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias ys="yay -S"
+alias pas="paru -S"
+alias wget="wget -c"
+alias ..="cd .."
+alias home="cd ~"
+alias docs="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias music="cd ~/Music"
+alias pics="cd ~/Pictures"
+alias vids="cd ~/Videos"
+alias desk="cd ~/Desktop"
+
+# Enhanced file manipulation aliases
+alias rm="rm -i"           # Confirm before removing files
+alias mv="mv -i"           # Confirm before overwriting files
+alias cp="cp -i"           # Confirm before overwriting files
+alias touch="touch -c"     # Don't create a new file if it already exists
+alias du="du -h --max-depth=1"  # Human-readable sizes, limit depth
+alias df="df -h"           # Human-readable disk usage
+alias find="find . -type f" # Find files only (not directories)
+
 # Git Aliases
 alias gs="git status"           # Shortcut for git status
 alias ga="git add"              # Shortcut for git add
