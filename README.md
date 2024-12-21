@@ -1,8 +1,9 @@
-# Snigdha OS Roots
+
+# Snigdha OS Roots 🌱
 
 Snigdha OS Roots is the foundational configuration repository for Snigdha OS, a lightweight, highly customizable Linux distribution based on Arch Linux and the Linux Zen Kernel. This repository contains essential files and scripts that define the core setup for Snigdha OS, providing a solid foundation for further customization and system management.
 
-## Table of Contents
+## Table of Contents 📋
 
 - [Overview](#overview)
 - [Features](#features)
@@ -10,21 +11,22 @@ Snigdha OS Roots is the foundational configuration repository for Snigdha OS, a 
 - [Configuration](#configuration)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Developers](#developers)
 - [License](#license)
 
-## Overview
+## Overview 🔍
 
 Snigdha OS Roots is designed to be part of the Snigdha OS ecosystem, providing default configurations, system utilities, and essential components that ensure a seamless and streamlined user experience. This repository includes various scripts, environment configurations, and core tools required to set up and maintain a stable Snigdha OS installation.
 
-## Features
+## Features ✨
 
-- **Minimal Base System**: Focuses on providing a lightweight setup with only essential packages installed.
-- **Custom Scripts**: Includes setup and configuration scripts to personalize the system.
-- **System Configuration**: Includes default system configuration files like `~/.bashrc`, `~/.xinitrc`, and more.
-- **AUR Integration**: Seamlessly integrates AUR helpers like `yay` for easy package installation from the Arch User Repository.
-- **Security Enhancements**: Implements security-focused configurations by default for better system integrity.
+- **Minimal Base System** 🛠️: Focuses on providing a lightweight setup with only essential packages installed.
+- **Custom Scripts** 📝: Includes setup and configuration scripts to personalize the system.
+- **System Configuration** ⚙️: Includes default system configuration files like `~/.bashrc`, `~/.xinitrc`, and more.
+- **AUR Integration** 🔌: Seamlessly integrates AUR helpers like `yay` for easy package installation from the Arch User Repository.
+- **Security Enhancements** 🔒: Implements security-focused configurations by default for better system integrity.
 
-## Installation
+## Installation 🚀
 
 To install and set up Snigdha OS Roots, follow these steps:
 
@@ -50,15 +52,15 @@ To install and set up Snigdha OS Roots, follow these steps:
    sudo pacman -S <required-packages>
    ```
 
-## Configuration
+## Configuration ⚡
 
 After installation, you can customize Snigdha OS Roots to suit your needs:
 
-- **Bash Configuration**: Modify the `.bashrc` file for your shell settings.
-- **X11 Configuration**: Configure `.xinitrc` for your window manager and desktop environment setup.
-- **System Tweaks**: Review and edit system configurations located in the `.config` directory for services and system behavior adjustments.
+- **Bash Configuration** 🖥️: Modify the `.bashrc` file for your shell settings.
+- **X11 Configuration** 🖥️: Configure `.xinitrc` for your window manager and desktop environment setup.
+- **System Tweaks** ⚙️: Review and edit system configurations located in the `.config` directory for services and system behavior adjustments.
 
-## Usage
+## Usage 💻
 
 Once installed and configured, you can start using Snigdha OS Roots to further customize your environment:
 
@@ -68,16 +70,24 @@ Once installed and configured, you can start using Snigdha OS Roots to further c
 
 For additional usage instructions and system management, refer to the `docs` folder or review the individual configuration files.
 
-## Contributing
+## Contributing 🤝
 
 We welcome contributions to Snigdha OS Roots. To contribute:
 
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Submit a pull request with a detailed description of the changes.
+1. Fork the repository 🍴.
+2. Create a new branch for your feature or fix 🌿.
+3. Submit a pull request with a detailed description of the changes 💬.
 
-For larger contributions or ideas, please open an issue to discuss it with the maintainers first.
+For larger contributions or ideas, please open an issue to discuss it with the maintainers first 🗣️.
 
-## License
+## Developers 🧑‍💻
+
+Here are the active contributors and developers of Snigdha OS Roots:
+
+- [Eshan Roy](https://github.com/eshanized)
+
+Feel free to reach out or contribute!
+
+## License 📜
 
 Snigdha OS Roots is licensed under the [MIT License](LICENSE). See the LICENSE file for more details.
