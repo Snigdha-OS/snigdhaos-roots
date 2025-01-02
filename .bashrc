@@ -87,13 +87,11 @@ ex () {
 
 # Custom PS1 prompt with IP address and conditional formatting based on terminal type
 get_ip_address() {
-    # Extract non-local IP address
     ip -4 addr show | grep -v '127.0.0.1' | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1
 }
 
 get_os_name() {
   if [[ -f /etc/os-release ]]; then
-    # Extract the OS name
     local os_name=$(grep '^NAME=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
     echo "$os_name"
   else
@@ -101,7 +99,6 @@ get_os_name() {
   fi
 }
 
-# Check if in a terminal session
 if [[ $(tty) == */dev/tty* ]]; then
     PS1="\e[31m[\u\e[32mIP: $(get_ip_address) | \e[31m]\n[>]\[\e[31m\]\$(pwd) $ \[\e[0m\]"
 else
@@ -114,93 +111,93 @@ fi
 #fi
 
 # Additional useful aliases
-alias cls="clear"                     # Clear the terminal screen
-alias h="history"                     # Show command history
-alias upg="sudo pacman -Syu"          # Update system
-alias restart="sudo reboot"           # Restart system
-alias shutdown="sudo shutdown -h now" # Shutdown system
-alias halt="sudo shutdown -h now"     # Shutdown system (alternative)
-alias lock="i3lock"                   # Lock screen
-alias logs="journalctl -xe"           # Show system logs
-alias t="tmux"                        # Start tmux session
-alias top="htop"                      # Use htop instead of top
-alias cpu="lscpu"                     # Display CPU info
-alias mem="free -h"                   # Display memory info
-alias battery="upower -i $(upower -e | grep 'BAT') | grep 'state\|percentage'" # Battery status
+alias cls="clear"
+alias h="history"
+alias upg="sudo pacman -Syu"
+alias restart="sudo reboot"
+alias shutdown="sudo shutdown -h now"
+alias halt="sudo shutdown -h now"
+alias lock="i3lock"
+alias logs="journalctl -xe"
+alias t="tmux"
+alias top="htop"
+alias cpu="lscpu"
+alias mem="free -h"
+alias battery="upower -i $(upower -e | grep 'BAT') | grep 'state\|percentage'"
 
 # Navigate the system more efficiently
-alias src="cd ~/src"  # Navigate to source code directory
-alias code="code ."    # Open VSCode in current directory
+alias src="cd ~/src"
+alias code="code ."
 
 # Git Aliases
-alias gs="git status"           # Shortcut for git status
-alias ga="git add"              # Shortcut for git add
-alias gaa="git add --all"       # Shortcut for git add all
-alias gc="git commit"           # Shortcut for git commit
-alias gca="git commit --amend" # Shortcut for amend commit
-alias gcm="git commit -m"       # Commit with a message
-alias gco="git checkout"        # Shortcut for git checkout
-alias gbr="git branch"          # Shortcut for git branch
-alias gb="git branch"           # Alias for listing branches
-alias gl="git log"              # Shortcut for git log
-alias glg="git log --oneline --graph --all" # Shortcut for git log with graph
-alias gst="git stash"           # Shortcut for git stash
-alias gpo="git push origin"     # Shortcut for pushing to origin
-alias gpl="git pull"            # Shortcut for git pull
-alias gup="git pull --rebase"   # Shortcut for git pull --rebase
-alias gd="git diff"             # Shortcut for git diff
-alias gds="git diff --staged"   # Shortcut for git diff staged changes
-alias gls="git ls-files"        # List files tracked by git
-alias gcl="git clone"           # Shortcut for git clone
-alias gtag="git tag"            # Shortcut for git tag
+alias gs="git status"
+alias ga="git add"
+alias gaa="git add --all"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gbr="git branch"
+alias gb="git branch"
+alias gl="git log"
+alias glg="git log --oneline --graph --all"
+alias gst="git stash"
+alias gpo="git push origin"
+alias gpl="git pull"
+alias gup="git pull --rebase"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gls="git ls-files"
+alias gcl="git clone"
+alias gtag="git tag"
 
 # npm Aliases
-alias ni="npm install"            # Shortcut for npm install
-alias nis="npm install --save"     # Install and save the package in dependencies
-alias nisdev="npm install --save-dev" # Install and save as dev dependency
-alias nup="npm update"             # Update all packages
-alias nstart="npm start"           # Start the application (npm start)
-alias nrun="npm run"               # Run npm scripts
-alias ntest="npm test"             # Run npm tests
-alias nls="npm ls"                 # List installed packages
-alias nci="npm ci"                 # Clean install (faster than npm install)
-alias nfund="npm fund"             # Show funding info for packages
-alias npublish="npm publish"       # Publish package to npm registry
-alias nversion="npm version"       # View and manage versioning
-alias nrm="npm run"                # Run a npm script
-alias nout="npm outdated"          # Check outdated packages
+alias ni="npm install"
+alias nis="npm install --save"
+alias nisdev="npm install --save-dev"
+alias nup="npm update"
+alias nstart="npm start"
+alias nrun="npm run"
+alias ntest="npm test"
+alias nls="npm ls"
+alias nci="npm ci"
+alias nfund="npm fund"
+alias npublish="npm publish"
+alias nversion="npm version"
+alias nrm="npm run"
+alias nout="npm outdated"
 
 # pnpm Aliases
-alias pni="pnpm install"           # Shortcut for pnpm install
-alias pnis="pnpm install --save"    # Install and save in dependencies
-alias pnisdev="pnpm install --save-dev" # Install and save as dev dependency
-alias pnm="pnpm manager"           # Use pnpm as a manager alias
-alias pnup="pnpm update"           # Update all packages using pnpm
-alias pnstart="pnpm start"         # Start the application with pnpm
-alias pnrun="pnpm run"             # Run pnpm scripts
-alias pntest="pnpm test"           # Run pnpm tests
-alias pnls="pnpm list"             # List installed pnpm packages
-alias pnci="pnpm ci"               # Clean install with pnpm
-alias pnpublish="pnpm publish"     # Publish to pnpm registry
-alias pnversion="pnpm version"     # View and manage pnpm versioning
-alias pnout="pnpm outdated"        # Check outdated pnpm packages
+alias pni="pnpm install"
+alias pnis="pnpm install --save"
+alias pnisdev="pnpm install --save-dev"
+alias pnm="pnpm manager"
+alias pnup="pnpm update"
+alias pnstart="pnpm start"
+alias pnrun="pnpm run"
+alias pntest="pnpm test"
+alias pnls="pnpm list"
+alias pnci="pnpm ci"
+alias pnpublish="pnpm publish"
+alias pnversion="pnpm version"
+alias pnout="pnpm outdated"
 
 # Python Aliases
-alias py="python"           # Shortcut for python
-alias py3="python3"         # Shortcut for python3
-alias pip="pip3"             # Use pip3 instead of pip
-alias pipup="pip install --upgrade"  # Upgrade pip packages
-alias pyvenv="python3 -m venv"      # Create a Python virtual environment
-alias pyactivate="source venv/bin/activate"  # Activate a Python virtual environment
-alias pydeactivate="deactivate"   # Deactivate a Python virtual environment
-alias pyrun="python"         # Run a Python script
-alias pycheck="python -m py_compile" # Check syntax without running
-alias pytest="python -m pytest" # Run tests with pytest
-alias pydoc="python -m pydoc"   # Launch Python documentation server
-alias pylist="pip list"       # List installed Python packages
-alias pyfreeze="pip freeze"   # List installed packages in requirements format
-alias pyinstall="pip install"  # Install Python packages
-alias pyuninstall="pip uninstall"  # Uninstall Python packages
+alias py="python"
+alias py3="python3"
+alias pip="pip3"
+alias pipup="pip install --upgrade"
+alias pyvenv="python3 -m venv"
+alias pyactivate="source venv/bin/activate"
+alias pydeactivate="deactivate"
+alias pyrun="python"
+alias pycheck="python -m py_compile"
+alias pytest="python -m pytest"
+alias pydoc="python -m pydoc"
+alias pylist="pip list"
+alias pyfreeze="pip freeze"
+alias pyinstall="pip install"
+alias pyuninstall="pip uninstall"
 
 # C++ Aliases
 alias cpp-compile="g++ -std=c++17 -Wall -Wextra -o output"
@@ -211,50 +208,104 @@ alias cpp-build-all="g++ -std=c++17 -Wall -Wextra *.cpp -o output"
 alias cpp-edit="nano"
 alias cpp-exec="./output"
 
-# C Aliases
-alias c-compile="gcc -std=c11 -Wall -Wextra -o output"
-alias c-run="gcc -std=c11 -Wall -Wextra -o output && ./output"
-alias c-compile-opt="gcc -std=c11 -O2 -Wall -Wextra -o output"
-alias c-clean="rm -f output"
-alias c-build-all="gcc -std=c11 -Wall -Wextra *.c -o output"
-alias c-edit="nano"
-alias c-exec="./output"
-
 # Rust Aliases
-alias rustc="rustc"                          # Compile Rust programs with rustc
-alias rust-run="cargo run"                   # Run the current Rust project
-alias rust-build="cargo build"               # Build the current Rust project
-alias rust-build-rel="cargo build --release" # Build in release mode (optimized)
-alias rust-test="cargo test"                 # Run tests for the current project
-alias rust-clean="cargo clean"               # Clean the build directory
-alias rust-fmt="cargo fmt"                   # Format Rust code
-alias rust-clippy="cargo clippy"             # Run Clippy (linter for Rust)
-alias rust-doc="cargo doc --open"            # Generate and open documentation
-alias rust-new="cargo new"                   # Create a new Rust project
-alias rust-init="cargo init"                 # Initialize a new Rust project in an existing directory
-alias rust-add="cargo add"                   # Add a dependency to the project
-alias rust-upd="rustup update"               # Update Rust toolchain
-alias rust-ver="rustc --version"             # Display Rust version
-alias rust-watch="cargo watch -x run"        # Watch for changes and run automatically
-alias rust-deps="cargo tree"                 # Show dependency tree
-alias rust-check="cargo check"               # Check code without building it
-alias rust-ls="ls -alh --color=auto"         # List project directory contents
+alias rustc="rustc"
+alias rust-run="cargo run"
+alias rust-build="cargo build"
+alias rust-build-rel="cargo build --release"
+alias rust-test="cargo test"
+alias rust-clean="cargo clean"
+alias rust-fmt="cargo fmt"
+alias rust-clippy="cargo clippy"
+alias rust-doc="cargo doc --open"
+alias rust-new="cargo new"
+alias rust-init="cargo init"
+alias rust-add="cargo add"
+alias rust-upd="rustup update"
+alias rust-ver="rustc --version"
+alias rust-watch="cargo watch -x run"
+alias rust-deps="cargo tree"
+alias rust-check="cargo check"
+alias rust-ls="ls -alh --color=auto"
 
-# React
-alias react-create="npx create-react-app my-app --template typescript" # Create React app with TypeScript
-alias react-build="npm run build"              # Build React for production
-alias react-start="npm start"                  # Start React development server
-alias react-test="npm test"                    # Run React tests
-alias react-clean="rm -rf node_modules dist"   # Clean React project artifacts
+# Web Developer Aliases
 
-# Angular
-alias ng-new="npx @angular/cli new"            # Create a new Angular project
-alias ng-serve="npx ng serve"                  # Start Angular development server
-alias ng-build="npx ng build --prod"           # Build Angular for production
-alias ng-lint="npx ng lint"                    # Lint Angular code
-alias ng-generate="npx ng generate"            # Generate Angular components, services, etc.
+## Frontend Frameworks
+### React
+alias react-create="npx create-react-app my-app --template typescript"
+alias react-build="npm run build"
+alias react-start="npm start"
+alias react-test="npm test"
+alias react-lint="npm run lint"
 
-# Alias to change to different shells
-alias cbash="chsh -s /bin/bash"    # Change to Bash
-alias czsh="chsh -s /bin/zsh"      # Change to Zsh
-alias cfish="chsh -s /usr/bin/fish" # Change to Fish
+### Angular
+alias ng-create="ng new my-app"
+alias ng-serve="ng serve"
+alias ng-build="ng build"
+alias ng-test="ng test"
+alias ng-lint="ng lint"
+
+### Vue
+alias vue-create="vue create my-app"
+alias vue-serve="npm run serve"
+alias vue-build="npm run build"
+alias vue-test="npm run test"
+alias vue-lint="npm run lint"
+
+## Backend Frameworks
+### Node.js
+alias node-init="npm init -y"
+alias node-start="node index.js"
+
+### Express
+alias express-create="npm install express"
+alias express-start="node index.js"
+
+### Django
+alias django-create="django-admin startproject myproject"
+alias django-run="python manage.py runserver"
+alias django-migrate="python manage.py migrate"
+alias django-app="python manage.py startapp myapp"
+alias django-shell="python manage.py shell"
+
+### Flask
+alias flask-run="flask run"
+alias flask-env="export FLASK_ENV=development"
+alias flask-app="export FLASK_APP=app.py"
+
+# Miscellaneous Web Development Tools
+alias webpack-build="webpack --mode production"
+alias webpack-dev="webpack --mode development"
+alias sass-watch="sass --watch src/scss:dist/css"
+alias tailwind-init="npx tailwindcss init"
+alias tailwind-build="npx tailwindcss build src/styles.css -o dist/styles.css"
+
+# Database Management
+alias mysql-start="sudo systemctl start mysql"
+alias mysql-stop="sudo systemctl stop mysql"
+alias psql-start="sudo systemctl start postgresql"
+alias psql-stop="sudo systemctl stop postgresql"
+alias mongo-start="sudo systemctl start mongod"
+alias mongo-stop="sudo systemctl stop mongod"
+
+# Docker Aliases
+alias docker-start="sudo systemctl start docker"
+alias docker-stop="sudo systemctl stop docker"
+alias docker-ps="docker ps"
+alias docker-build="docker build -t"
+alias docker-run="docker run -d -p"
+alias docker-exec="docker exec -it"
+
+# Kubernetes Aliases
+alias k-start="kubectl apply -f"
+alias k-stop="kubectl delete -f"
+alias k-get-pods="kubectl get pods"
+alias k-get-services="kubectl get services"
+alias k-logs="kubectl logs"
+alias k-exec="kubectl exec -it"
+
+# DevOps and CI/CD
+alias ansible-play="ansible-playbook"
+alias terraform-init="terraform init"
+alias terraform-apply="terraform apply"
+alias terraform-plan="terraform plan"
