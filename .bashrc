@@ -6,8 +6,8 @@
 # Function to append to PATH if not already present
 append_path () {
     case ":$PATH:" in
-        *:"$1":*) ;;
-        *) PATH="${PATH:+$PATH:}$1" ;;
+        *:"$1":*) ;;  # If the given path is already in $PATH, do nothing
+        *) PATH="${PATH:+$PATH:}$1" ;;  # Otherwise, append the given path to $PATH
     esac
 }
 
@@ -17,14 +17,14 @@ append_path "$HOME/.local/bin"
 append_path "$HOME/.bin"   # Append .bin only if directory exists
 
 # Enable bash completion if available
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+if [ -f /usr/share/bash-completion/bash_completion ]; then  # Check if bash completion script is available at the first path
+    . /usr/share/bash-completion/bash_completion  # Source the bash completion script to enable autocomplete features
+elif [ -f /etc/bash_completion ]; then  # If the first path does not exist, check the second path for the script
+    . /etc/bash_completion  # Source the bash completion script from the second location
+fi  # End the conditional block
 
 # Check if the shell is interactive, and only execute below in interactive shells
-[[ $- != *i* ]] && return
+[[ $- != *i* ]] && return  # If the shell is not interactive (does not have 'i' in $-), return and do not execute further commands
 
 # Set default aliases
 
