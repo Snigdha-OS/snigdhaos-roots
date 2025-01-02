@@ -240,6 +240,20 @@ alias rust-deps="cargo tree"                 # Show dependency tree
 alias rust-check="cargo check"               # Check code without building it
 alias rust-ls="ls -alh --color=auto"         # List project directory contents
 
+# React
+alias react-create="npx create-react-app my-app --template typescript" # Create React app with TypeScript
+alias react-build="npm run build"              # Build React for production
+alias react-start="npm start"                  # Start React development server
+alias react-test="npm test"                    # Run React tests
+alias react-clean="rm -rf node_modules dist"   # Clean React project artifacts
+
+# Angular
+alias ng-new="npx @angular/cli new"            # Create a new Angular project
+alias ng-serve="npx ng serve"                  # Start Angular development server
+alias ng-build="npx ng build --prod"           # Build Angular for production
+alias ng-lint="npx ng lint"                    # Lint Angular code
+alias ng-generate="npx ng generate"            # Generate Angular components, services, etc.
+
 # Alias to change to different shells
 alias cbash="chsh -s /bin/bash"    # Change to Bash
 alias czsh="chsh -s /bin/zsh"      # Change to Zsh
