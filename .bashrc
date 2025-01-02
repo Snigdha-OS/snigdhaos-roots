@@ -16,6 +16,13 @@ append_path "$HOME/bin"
 append_path "$HOME/.local/bin"
 append_path "$HOME/.bin"   # Append .bin only if directory exists
 
+# Enable bash completion if available
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 # Check if the shell is interactive, and only execute below in interactive shells
 [[ $- != *i* ]] && return
 
@@ -84,17 +91,27 @@ get_ip_address() {
     ip -4 addr show | grep -v '127.0.0.1' | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n 1
 }
 
+get_os_name() {
+  if [[ -f /etc/os-release ]]; then
+    # Extract the OS name
+    local os_name=$(grep '^NAME=' /etc/os-release | cut -d '=' -f2 | tr -d '"')
+    echo "$os_name"
+  else
+    echo "/etc/os-release file not found!"
+  fi
+}
+
 # Check if in a terminal session
 if [[ $(tty) == */dev/tty* ]]; then
-    PS1="\e[1;31m[\u\e[1;32mIP: $(get_ip_address) | \e[1;31m]\n[>]\[\e[1;31m\]\$(pwd) $ \[\e[0m\]"
+    PS1="\e[31m[\u\e[32mIP: $(get_ip_address) | \e[31m]\n[>]\[\e[31m\]\$(pwd) $ \[\e[0m\]"
 else
-    PS1="\e[1;31m┌──[I'm \u\e[0m➜ \e[1;32mPublic IP: $(get_ip_address)🔒\e[1;31m]\n└──╼[\e[1;32mSNIGDHA OS\e[1;31m]\[\e[1;31m\]\$(pwd)\n$ Command: \[\e[0m\]"
+    PS1="\e[31m┌──[\u\e[0m➜ \e[32m$(get_ip_address)\e[31m]\n└──╼[\e[32m$(get_os_name)\e[31m]\[\e[31m\]\$(pwd)\n$ Command: \[\e[0m\]"
 fi
 
 # Display system information via neofetch if the flag is not set
-if [[ $1 != "no-repeat-flag" && -z $NO_REPETITION ]]; then
-    neofetch
-fi
+#if [[ $1 != "no-repeat-flag" && -z $NO_REPETITION ]]; then
+#    neofetch
+#fi
 
 # Additional useful aliases
 alias cls="clear"                     # Clear the terminal screen
