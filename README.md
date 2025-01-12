@@ -1,5 +1,12 @@
-
 # Snigdha OS Roots 🌱
+
+<p align="center">  
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License: MIT"></a>  
+  <a href="https://github.com/Snigdha-OS/snigdhaos-roots/releases"><img src="https://img.shields.io/github/v/release/Snigdha-OS/snigdhaos-roots?style=for-the-badge" alt="Latest Release"></a>  
+  <a href="https://github.com/Snigdha-OS/snigdhaos-roots/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=for-the-badge" alt="Contributions Welcome"></a>  
+  <a href="https://github.com/Snigdha-OS/snigdhaos-roots/actions"><img src="https://img.shields.io/github/actions/workflow/status/Snigdha-OS/snigdhaos-roots/cz.yml?branch=master&style=for-the-badge" alt="Build Status"></a>  
+  <a href="https://snigdha-os.github.io"><img src="https://img.shields.io/website?url=https%3A%2F%2Fsnigdha-os.github.io&style=for-the-badge" alt="Website Status"></a>  
+</p>  
 
 Snigdha OS Roots is the foundational configuration repository for Snigdha OS, a lightweight, highly customizable Linux distribution based on Arch Linux and the Linux Zen Kernel. This repository contains essential files and scripts that define the core setup for Snigdha OS, providing a solid foundation for further customization and system management.
 
