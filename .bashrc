@@ -32,8 +32,10 @@ alias ls='ls -l --color=auto'  # List directory contents in long format with col
 alias grep='grep --color=auto'  # Enable colorized output for grep command
 alias rs="sudo pacman -Rs"  # Remove packages with dependencies using pacman
 alias s="sudo pacman -S"  # Install packages with pacman
+alias rns="sudo pacman -Rns" # Remove package with pacman
 alias sy="sudo pacman -Syy"  # Sync package databases and update package list
 alias syyu="sudo pacman -Syyu"  # Sync package databases and update system packages
+alias qq="sudo pacman -Qq" # Show a list of installed package
 alias lck="sudo rm /var/lib/pacman/db.lck"  # Remove pacman lock file (use with caution)
 alias vm="sudo systemctl enable --now vmtoolsd.service"  # Enable VMware Tools service at boot
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"  # Display recently installed packages sorted by install date (last 200)
