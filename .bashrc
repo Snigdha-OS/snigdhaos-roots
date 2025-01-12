@@ -337,3 +337,33 @@ alias ansible-play="ansible-playbook"                                  # Run an 
 alias terraform-init="terraform init"                                  # Initialize Terraform project
 alias terraform-apply="terraform apply"                                # Apply Terraform configuration to provision resources
 alias terraform-plan="terraform plan"                                  # Preview changes Terraform will make to infrastructure
+
+# Function to install packages with pacman and fallback to yay
+install_package() {
+    local package_name="$1"  # The name of the package to install
+
+    if [[ -z "$package_name" ]]; then
+        echo "Usage: install_package <package_name>"
+        return 1
+    fi
+
+    echo "Attempting to install '$package_name' with pacman..."
+    sudo pacman -S --noconfirm "$package_name"
+    if [[ $? -eq 0 ]]; then
+        echo "'$package_name' installed successfully with pacman!"
+        return 0
+    fi
+
+    echo "Package '$package_name' could not be installed with pacman. Trying yay..."
+    yay -S --noconfirm "$package_name"
+    if [[ $? -eq 0 ]]; then
+        echo "'$package_name' installed successfully with yay!"
+        return 0
+    fi
+
+    echo "Failed to install '$package_name' with both pacman and yay."
+    return 1
+}
+
+# Alias for convenience
+alias syay="install_package"
